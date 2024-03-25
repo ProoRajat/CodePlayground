@@ -1,4 +1,5 @@
 from random import randint
+from user_decision import get_user_decision
 
 def random_output():    # generate 0 = ROCK, 1 = PAPER, 2 = SCISSOR
     x = randint(0,2)
@@ -43,9 +44,13 @@ while True:
     print("\n------",decision(user_input, comp_input),"------", sep='') # print who win
     print("\nComputer Played '", comp_input,"'", sep='')    # shows the output of comp
 
-    again = input("\nDo you want to play again (y/n): ")    # ask if want to continue playing
-    if again == 'y' or again == '': # continue even if input is enter key
-        continue
-    else:
-        print("##### Thanks for playing #####") # Break in any other case
+    if not get_user_decision("\nDo you want to play again (y/n): "):
         break
+    # again = input("\nDo you want to play again (y/n): ")    # ask if want to continue playing
+    # if again == 'y' or again == '': # continue even if input is enter key
+    #     continue
+    # else:
+    #     print("##### Thanks for playing #####") # Break in any other case
+    #     break
+
+print("##### Thanks for playing #####")
