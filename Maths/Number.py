@@ -48,6 +48,36 @@ def is_palindrome(num):
     return True if reverse_of_number(num) == num else False
 
 
+# return divisors in a list
+def return_divisors(num):
+    divisors = []
+    for divisor in range(1,abs(num)+1):
+        if num % divisor == 0:
+            divisors.append(divisor)
+    return divisors
+
+
+# perfect number :- sum of divisors(excuding number) = number
+def is_perfect(num):
+    if num <= 0:
+        return False
+    divisors = return_divisors(num)
+    divisors.remove(num)
+    return True if num == sum(divisors) else False
+
+
+# returns fibnacci sequence upto n terms as a list
+def fibonacci_sequence(num):
+    sequence = [0,1]
+    if num <= 0:
+        return []
+    elif num == 1:
+        return [0]
+    for i in range(0,num-2):
+        sequence.append(sequence[i]+sequence[i+1])
+    return sequence
+
+
 '''
 First user decide what task he want to perform
 We take user responce as number corresponding to the take 
@@ -70,6 +100,7 @@ def user_input_to_list(user_input):
         List.append(int(number))    # task remaing :- add expetion for non integer
 
     return List
+        
         
 # tofix :- repetation
 def what_task(string, num):
@@ -94,13 +125,35 @@ def what_task(string, num):
                     print(f"The number {num} is Palindrome")
                 else:
                     print(f"The number {num} is NOT Palindrome")
+            case 6:
+                print(f"The divisors of {num} are {return_divisors(num)}")
+            case 7:
+                if is_perfect(num):
+                    print(f"The number {num} is Perfect")
+                else:
+                    print(f"The number {num} is NOT Perfect")
+            case 8:
+                if fibonacci_sequence(num) == []:
+                    print("Please enter a positive number")
+                else:
+                    print(f"The Fibonacci sequence upto {num} terms is {fibonacci_sequence(num)}")
 
 
 number = user_input()
 
-print("What do you want to do with this number?")
-print("1. Calculate reverse\n2. Sum of digits\n3. Check Armstrong\n4. Check prime\n5. Check Palindrome \n")
-taskToDo = input("NOTE: Enter the digit corresponding to the take that you want to perform.\n      To do more than one take seperate the digits with ','.\nYour responce: ")
+print("\nWhat do you want to do with this number?")
+print("1. Calculate reverse")
+print("2. Sum of digits")
+print("3. Check Armstrong")
+print("4. Check prime")
+print("5. Check Palindrome")
+print("6. Print Divisors")
+print("7. Check Perfect Number")
+print(f"8. Print Fibonacci sequence upto {number} terms")
+print("9. Check Fibonacci Number")
+
+taskToDo = input("NOTE: Enter the digit corresponding to the take that you want to perform.\n      To do more than one take seperate the digits with ','.\nEg :- 1,2,3 or 2 or 5,6\nYour responce: ")
+print()
 
 what_task(taskToDo, number)
 
