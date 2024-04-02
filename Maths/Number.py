@@ -78,6 +78,17 @@ def fibonacci_sequence(num):
     return sequence
 
 
+# to check if the number is in fibonacci series or not
+def is_fibonacci_number(num):
+    n = 1
+    while fibonacci_sequence(n)[-1] <= num:
+        if num == fibonacci_sequence(n)[-1]:
+            return True
+        n += 1
+    else:
+        return False
+
+
 '''
 First user decide what task he want to perform
 We take user responce as number corresponding to the take 
@@ -137,6 +148,11 @@ def what_task(string, num):
                     print("Please enter a positive number")
                 else:
                     print(f"The Fibonacci sequence upto {num} terms is {fibonacci_sequence(num)}")
+            case 9:
+                if is_fibonacci_number(num):
+                    print(f"The number {num} is Fibonacci")
+                else:
+                    print(f"The number {num} is NOT Fibonacci")
 
 
 number = user_input()
