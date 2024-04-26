@@ -88,6 +88,14 @@ def is_fibonacci_number(num):
     else:
         return False
 
+# def is_smith(num):
+#     sumOfDigitsOfDivisors = 0
+#     for i in return_divisors(num):
+#         sumOfDigitsOfDivisors += sum_of_digits(i)
+#         print(sumOfDigitsOfDivisors)
+#     print(sumOfDigitsOfDivisors - num)
+#     return True if sumOfDigitsOfDivisors - num == sum_of_digits(num) else False
+
 
 '''
 First user decide what task he want to perform
@@ -153,6 +161,11 @@ def what_task(string, num):
                     print(f"The number {num} is Fibonacci")
                 else:
                     print(f"The number {num} is NOT Fibonacci")
+            # case 10:
+            #     if is_smith(num):
+            #         print(f"The number {num} is Smith")
+            #     else:
+            #         print(f"The number {num} is NOT Smith")
 
 
 number = user_input()
@@ -167,6 +180,7 @@ print("6. Print Divisors")
 print("7. Check Perfect Number")
 print(f"8. Print Fibonacci sequence upto {number} terms")
 print("9. Check Fibonacci Number")
+# print("10. Check Smith Numbers")
 
 taskToDo = input("NOTE: Enter the digit corresponding to the take that you want to perform.\n      To do more than one take seperate the digits with ','.\nEg :- 1,2,3 or 2 or 5,6\nYour responce: ")
 print()
